@@ -6,14 +6,96 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		85D9742C2D618394007592D7 /* OllamaXcodeExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 85D9741F2D618394007592D7 /* OllamaXcodeExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		85D9743D2D6184EA007592D7 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D974062D6182ED007592D7 /* XcodeKit.framework */; };
+		85D9743E2D6184EA007592D7 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85D974062D6182ED007592D7 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85D9742A2D618394007592D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85CB830A2D61660D00AC36C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85D9741E2D618394007592D7;
+			remoteInfo = OllamaXcodeExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		85D9742D2D618394007592D7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				85D9742C2D618394007592D7 /* OllamaXcodeExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85D9743C2D6184E5007592D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85D9743F2D6184EA007592D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "@executable_path/../Frameworks @loader_path/Frameworks";
+			dstSubfolderSpec = 10;
+			files = (
+				85D9743E2D6184EA007592D7 /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		85CB83122D61660D00AC36C9 /* Ollama Extension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ollama Extension.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D974062D6182ED007592D7 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+		85D9741F2D618394007592D7 /* OllamaXcodeExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OllamaXcodeExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D974442D618C6A007592D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		85D974302D618394007592D7 /* Exceptions for "OllamaXcodeExtension" folder in "OllamaXcodeExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 85D9741E2D618394007592D7 /* OllamaXcodeExtension */;
+		};
+		85D974432D618697007592D7 /* Exceptions for "Ollama Extension" folder in "OllamaXcodeExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Services/OllamaService.swift,
+			);
+			target = 85D9741E2D618394007592D7 /* OllamaXcodeExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		85CB83142D61660D00AC36C9 /* Ollama Extension */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				85D974432D618697007592D7 /* Exceptions for "Ollama Extension" folder in "OllamaXcodeExtension" target */,
+			);
 			path = "Ollama Extension";
+			sourceTree = "<group>";
+		};
+		85D974232D618394007592D7 /* OllamaXcodeExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				85D974302D618394007592D7 /* Exceptions for "OllamaXcodeExtension" folder in "OllamaXcodeExtension" target */,
+			);
+			path = OllamaXcodeExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +108,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		85D9741C2D618394007592D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85D9743D2D6184EA007592D7 /* XcodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				85CB83142D61660D00AC36C9 /* Ollama Extension */,
+				85D974232D618394007592D7 /* OllamaXcodeExtension */,
+				85D974052D6182ED007592D7 /* Frameworks */,
 				85CB83132D61660D00AC36C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +133,18 @@
 			isa = PBXGroup;
 			children = (
 				85CB83122D61660D00AC36C9 /* Ollama Extension.app */,
+				85D9741F2D618394007592D7 /* OllamaXcodeExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		85D974052D6182ED007592D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85D974442D618C6A007592D7 /* Foundation.framework */,
+				85D974062D6182ED007592D7 /* XcodeKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +157,13 @@
 				85CB830E2D61660D00AC36C9 /* Sources */,
 				85CB830F2D61660D00AC36C9 /* Frameworks */,
 				85CB83102D61660D00AC36C9 /* Resources */,
+				85D9742D2D618394007592D7 /* Embed Foundation Extensions */,
+				85D9743C2D6184E5007592D7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				85D9742B2D618394007592D7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				85CB83142D61660D00AC36C9 /* Ollama Extension */,
@@ -69,6 +174,29 @@
 			productName = "Ollama Extension";
 			productReference = 85CB83122D61660D00AC36C9 /* Ollama Extension.app */;
 			productType = "com.apple.product-type.application";
+		};
+		85D9741E2D618394007592D7 /* OllamaXcodeExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85D974312D618394007592D7 /* Build configuration list for PBXNativeTarget "OllamaXcodeExtension" */;
+			buildPhases = (
+				85D9741B2D618394007592D7 /* Sources */,
+				85D9741C2D618394007592D7 /* Frameworks */,
+				85D9741D2D618394007592D7 /* Resources */,
+				85D9743F2D6184EA007592D7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				85D974232D618394007592D7 /* OllamaXcodeExtension */,
+			);
+			name = OllamaXcodeExtension;
+			packageProductDependencies = (
+			);
+			productName = OllamaXcodeExtension;
+			productReference = 85D9741F2D618394007592D7 /* OllamaXcodeExtension.appex */;
+			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +209,9 @@
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					85CB83112D61660D00AC36C9 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					85D9741E2D618394007592D7 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -100,12 +231,20 @@
 			projectRoot = "";
 			targets = (
 				85CB83112D61660D00AC36C9 /* Ollama Extension */,
+				85D9741E2D618394007592D7 /* OllamaXcodeExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		85CB83102D61660D00AC36C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85D9741D2D618394007592D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +261,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		85D9741B2D618394007592D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85D9742B2D618394007592D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85D9741E2D618394007592D7 /* OllamaXcodeExtension */;
+			targetProxy = 85D9742A2D618394007592D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		85CB831F2D61660E00AC36C9 /* Debug */ = {
@@ -250,6 +404,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Ollama Extension/Ollama_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -268,6 +424,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.future-connects.Ollama-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -280,6 +437,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Ollama Extension/Ollama_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -298,6 +457,69 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.future-connects.Ollama-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		85D9742E2D618394007592D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OllamaXcodeExtension/OllamaXcodeExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = F9JNQTTH3Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OllamaXcodeExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OllamaXcodeExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.future-connects.Ollama-Extension.OllamaXcodeExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		85D9742F2D618394007592D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OllamaXcodeExtension/OllamaXcodeExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = F9JNQTTH3Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OllamaXcodeExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OllamaXcodeExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.future-connects.Ollama-Extension.OllamaXcodeExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -320,6 +542,15 @@
 			buildConfigurations = (
 				85CB83222D61660E00AC36C9 /* Debug */,
 				85CB83232D61660E00AC36C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85D974312D618394007592D7 /* Build configuration list for PBXNativeTarget "OllamaXcodeExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85D9742E2D618394007592D7 /* Debug */,
+				85D9742F2D618394007592D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

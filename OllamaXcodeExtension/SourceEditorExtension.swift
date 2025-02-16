@@ -1,18 +1,34 @@
+//
+//  SourceEditorExtension.swift
+//  OllamaXcodeExtension
+//
+//  Created by Stanislav Fatkhutdinov on 2/15/25.
+//
+
 import Foundation
 import XcodeKit
 
+@objc(SourceEditorExtension)
 class SourceEditorExtension: NSObject, XCSourceEditorExtension {
+    
     func extensionDidFinishLaunching() {
         // Setup any extension initialization here
     }
+    
+    /*
+    var commandDefinitions: [[XCSourceEditorCommandDefinitionKey: Any]] {
+        // If your extension needs to return a collection of command definitions that differs from those in its Info.plist, implement this optional property getter.
+        return []
+    }
+    */
+    
 }
 
+@objc(SourceEditorCommand)
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
-        guard let buffer = invocation.buffer else {
-            completionHandler(NSError(domain: "OllamaXcode", code: -1, userInfo: nil))
-            return
-        }
+        // Since buffer is not optional, we can use it directly
+        let buffer = invocation.buffer
         
         // Get selected text or entire file content
         let selectedRanges = buffer.selections.map { $0 as! XCSourceTextRange }
@@ -22,7 +38,6 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         OllamaService.shared.processCode(selectedText) { result in
             switch result {
             case .success(let response):
-                // Update the code with AI suggestions
                 self.updateBuffer(buffer, with: response, ranges: selectedRanges)
                 completionHandler(nil)
             case .failure(let error):
@@ -60,14 +75,12 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     }
     
     private func updateBuffer(_ buffer: XCSourceTextBuffer, with text: String, ranges: [XCSourceTextRange]) {
-        // Replace the selected text with the AI response
         for range in ranges.reversed() {
             let startLine = range.start.line
             let startColumn = range.start.column
             let endLine = range.end.line
             let endColumn = range.end.column
             
-            // Remove the selected text
             if startLine == endLine {
                 var line = buffer.lines[startLine] as! String
                 line.replaceSubrange(
@@ -76,10 +89,9 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
                 )
                 buffer.lines[startLine] = line
             } else {
-                // Handle multi-line replacement
                 buffer.lines.removeObjects(in: NSRange(location: startLine, length: endLine - startLine + 1))
                 buffer.lines.insert(text, at: startLine)
             }
         }
     }
-} 
+}
