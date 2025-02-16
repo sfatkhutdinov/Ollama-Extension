@@ -7,30 +7,83 @@
 
 import SwiftUI
 
+// Add the model import
+struct XcodeContext {
+    let currentFile: String
+    let fileStructure: [String: Any]
+    let imports: [String]
+    let selectedCode: String
+    let surroundingContext: String
+    
+    static let empty = XcodeContext(
+        currentFile: "",
+        fileStructure: [:],
+        imports: [],
+        selectedCode: "",
+        surroundingContext: ""
+    )
+}
+
 struct ContentView: View {
     @State private var messages: [ChatMessage] = []
     @State private var inputMessage: String = ""
+    @State private var currentContext: XcodeContext = .empty
     
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 12) {
-                    ForEach(messages) { message in
-                        ChatBubble(message: message)
+        HSplitView {
+            // Chat interface
+            VStack {
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 12) {
+                        ForEach(messages) { message in
+                            ChatBubble(message: message)
+                        }
+                    }
+                    .padding()
+                }
+                
+                HStack {
+                    TextField("Type your message...", text: $inputMessage)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onSubmit {
+                            if !inputMessage.isEmpty {
+                                sendMessage()
+                            }
+                        }
+                        .submitLabel(.send)
+                    
+                    Button("Send") {
+                        if !inputMessage.isEmpty {
+                            sendMessage()
+                        }
                     }
                 }
                 .padding()
             }
+            .frame(minWidth: 300)
             
-            HStack {
-                TextField("Type your message...", text: $inputMessage)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            // Context viewer
+            VStack {
+                Text("Current Context")
+                    .font(.headline)
+                    .padding()
                 
-                Button("Send") {
-                    sendMessage()
+                List {
+                    Text("Current File: \(currentContext.currentFile)")
+                    
+                    Section("Imports") {
+                        ForEach(currentContext.imports, id: \.self) { import_ in
+                            Text(import_)
+                        }
+                    }
+                    
+                    Section("Selected Code") {
+                        Text(currentContext.selectedCode)
+                            .font(.system(.body, design: .monospaced))
+                    }
                 }
             }
-            .padding()
+            .frame(minWidth: 200)
         }
     }
     
